@@ -13,6 +13,9 @@
       };
       xmlConduitWriter = callPackage ./haskell/xml-conduit-writer.nix {};
       reactiveBananaGtk = callPackage ./haskell/reactive-banana-gtk.nix {};
+      neuroSpider = callPackage ./haskell/neuro-spider.nix {
+        inherit reactiveBananaGtk xmlConduitWriter webkit;
+      };
     };
   };
 }
