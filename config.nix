@@ -1,7 +1,14 @@
 {
   allowUnfree = true;
   packageOverrides = pkgs: rec {
+    base = { inherit (pkgs) nix; };
     haskellPackages = with pkgs.haskellPackages; pkgs.haskellPackages // rec {
+      baseDev = base // {
+        inherit ghc basePrelude cabalInstall cabal2nix;
+      };
+      toolDev = baseDev // {
+        inherit ghcMod hoogle hlint SourceGraph codex hasktags;
+      };
       webkit = callPackage ./haskell/webkit.nix {
         webkit = pkgs.webkitgtk2;
       };
