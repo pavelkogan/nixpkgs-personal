@@ -7,7 +7,7 @@
         inherit ghc basePrelude cabalInstall cabal2nix shelly;
       };
       toolDev = baseDev // {
-        inherit ghcMod hoogle hlint SourceGraph codex hasktags;
+        inherit ghcMod hoogle hlint SourceGraph codex hasktags hsdev;
       };
       nsDev = toolDev // {
         inherit
@@ -17,6 +17,10 @@
         graphvizBin = pkgs.graphviz;
       };
       codex = callPackage ./haskell/codex.nix {};
+      hsdev = callPackage ./haskell/hsdev.nix {
+        inherit hdocs;
+      };
+      hdocs = callPackage ./haskell/hdocs.nix {};
       webkit = callPackage ./haskell/webkit.nix {
         webkit = pkgs.webkitgtk2;
       };
