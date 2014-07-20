@@ -16,6 +16,7 @@
           xmlConduitWriter xmlTypes threepennyGui;
         graphvizBin = pkgs.graphviz;
       };
+      codex = callPackage ./haskell/codex.nix {};
       webkit = callPackage ./haskell/webkit.nix {
         webkit = pkgs.webkitgtk2;
       };
