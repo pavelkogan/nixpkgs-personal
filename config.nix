@@ -13,7 +13,7 @@
         inherit
           conduit dataDefault fgl graphviz gtk mtl parsec reactiveBanana
           reactiveBananaGtk safe strict text transformers webkit xmlConduit
-          xmlConduitWriter xmlTypes;
+          xmlConduitWriter xmlTypes threepennyGui;
         graphvizBin = pkgs.graphviz;
       };
       webkit = callPackage ./haskell/webkit.nix {
