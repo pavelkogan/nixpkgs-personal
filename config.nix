@@ -4,7 +4,7 @@
     base = { inherit (pkgs) nix; };
     haskellPackages = with pkgs.haskellPackages; pkgs.haskellPackages // rec {
       baseDev = base // {
-        inherit ghc basePrelude cabalInstall cabal2nix;
+        inherit ghc basePrelude cabalInstall cabal2nix shelly;
       };
       toolDev = baseDev // {
         inherit ghcMod hoogle hlint SourceGraph codex hasktags;
