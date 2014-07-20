@@ -9,6 +9,13 @@
       toolDev = baseDev // {
         inherit ghcMod hoogle hlint SourceGraph codex hasktags;
       };
+      nsDev = toolDev // {
+        inherit
+          conduit dataDefault fgl graphviz gtk mtl parsec reactiveBanana
+          reactiveBananaGtk safe strict text transformers webkit xmlConduit
+          xmlConduitWriter xmlTypes;
+        graphvizBin = pkgs.graphviz;
+      };
       webkit = callPackage ./haskell/webkit.nix {
         webkit = pkgs.webkitgtk2;
       };
