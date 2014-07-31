@@ -7,7 +7,7 @@
         inherit ghc basePrelude cabalInstall cabal2nix shelly;
       };
       toolDev = baseDev // {
-        inherit ghcMod hoogle hlint SourceGraph codex hasktags;
+        inherit ghcMod hoogle hlint SourceGraph codex hasktags haddock;
       };
       nsDev = toolDev // {
         inherit
