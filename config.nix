@@ -23,7 +23,6 @@
       Graphalyze = callPackage ./haskell/graphalyze.nix {};
       SourceGraph = callPackage ./haskell/sourcegraph.nix {
         inherit Graphalyze;
-        Cabal = Cabal_1_20_0_1;
       };
       xmlConduitWriter = callPackage ./haskell/xml-conduit-writer.nix {};
       reactiveBananaGtk = callPackage ./haskell/reactive-banana-gtk.nix {};
