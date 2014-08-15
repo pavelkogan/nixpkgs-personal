@@ -2,7 +2,7 @@
 
 cabal.mkDerivation (self: {
   pname = "reactive-banana-gtk";
-  version = "0.0.3";
+  version = "0.0.4";
   src = /home/pavel/work/reactive-banana-gtk;
   buildDepends = [ errors glib gtk mtl reactiveBanana ];
   meta = {
