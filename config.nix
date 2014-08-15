@@ -3,7 +3,7 @@
   packageOverrides = pkgs: rec {
     base = { inherit (pkgs) nix; };
     haskellPackages = with pkgs.haskellPackages; pkgs.haskellPackages // rec {
-      basePkgs = [ basePrelude shelly ];
+      basePkgs = [ basePrelude shelly basicPrelude ];
       nsEnv = ghcWithPackages (self: basePkgs ++ [
         conduit dataDefault fgl graphviz gtk mtl parsec reactiveBanana
         reactiveBananaGtk safe strict text transformers webkit xmlConduit
