@@ -3,18 +3,46 @@
   packageOverrides = pkgs: rec {
     base = { inherit (pkgs) nix; };
     haskellPackages = with pkgs.haskellPackages; pkgs.haskellPackages // rec {
-      basePkgs = [ basePrelude shelly basicPrelude ];
-      nsEnv = ghcWithPackages (self: basePkgs ++ [
-        conduit dataDefaultGenerics fgl graphviz gtk mtl parsec reactiveBanana
-        reactiveBananaGtk safe strict text transformers webkit xmlConduit
-        xmlConduitWriter xmlTypes
-      ]);
+      basePkgs = [
+        basePrelude
+        basicPrelude
+        shelly
+      ];
+      nsPkgs = [
+        conduit
+        dataDefaultGenerics
+        fgl
+        graphviz
+        gtk
+        mtl
+        parsec
+        reactiveBanana
+        reactiveBananaGtk
+        safe
+        strict
+        text
+        transformers
+        webkit
+        xmlConduit
+        xmlConduitWriter
+        xmlTypes
+      ];
+      nsEnv = ghcWithPackages (self: basePkgs ++ nsPkgs );
       baseDev = base // {
-        inherit cabalInstall cabal2nix;
-      };
+        inherit
+          cabal2nix
+          cabalInstall
+      ;};
       toolDev = baseDev // {
-        inherit ghcMod hoogle hlint SourceGraph codex hasktags hscolour;
-      };
+        inherit
+          codex
+          ghcMod
+          hasktags
+          hscolour
+          hlint
+          hoogle
+          SourceGraph
+      ;};
       nsDev = toolDev // {
         inherit nsEnv;
         graphvizBin = pkgs.graphviz;
