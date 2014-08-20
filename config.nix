@@ -6,7 +6,13 @@
       basePkgs = [
         basePrelude
         basicPrelude
+        prettyShow
         shelly
+      ];
+      shPkgs = [
+        aeson
+        haddock
+        haskellSrcExts
       ];
       nsPkgs = [
         conduit
@@ -27,7 +33,7 @@
         xmlConduitWriter
         xmlTypes
       ];
-      nsEnv = ghcWithPackages (self: basePkgs ++ nsPkgs );
+      nsEnv = ghcWithPackagesOld (self: basePkgs ++ nsPkgs ++ shPkgs );
       baseDev = base // {
         inherit
           cabal2nix
