@@ -8,11 +8,17 @@
         basicPrelude
         prettyShow
         shelly
+        GLFWB
       ];
       shPkgs = [
         aeson
         haddock
         haskellSrcExts
+      ];
+      tPkgs = [
+        split
+        csv
+        caseInsensitive
       ];
       nsPkgs = [
         conduit
@@ -33,7 +39,7 @@
         xmlConduitWriter
         xmlTypes
       ];
-      nsEnv = ghcWithPackagesOld (self: basePkgs ++ nsPkgs ++ shPkgs );
+      nsEnv = ghcWithPackagesOld (self: basePkgs ++ nsPkgs ++ tPkgs ++ shPkgs );
       baseDev = base // {
         inherit
           cabal2nix
@@ -41,6 +47,7 @@
       ;};
       toolDev = baseDev // {
         inherit
+          cabalBounds
           codex
           ghcMod
           hasktags
