@@ -1,7 +1,7 @@
 {
   allowUnfree = true;
   packageOverrides = pkgs: rec {
-    base = { inherit (pkgs) nix; };
+    base = { inherit (pkgs) nix nix-repl; };
     haskellPackages = with pkgs.haskellPackages; pkgs.haskellPackages // rec {
       basePkgs = [
         basePrelude
