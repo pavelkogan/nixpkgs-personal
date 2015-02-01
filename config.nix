@@ -19,6 +19,8 @@
         split
         csv
         caseInsensitive
+        regexCompat
+        optparseApplicative
       ];
       nsPkgs = [
         conduit
